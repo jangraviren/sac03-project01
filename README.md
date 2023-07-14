@@ -61,7 +61,41 @@ Your organization wants to deploy a new multi-tier application. The application 
 16. Deployment Automation: Utilize AWS CloudFormation or other deployment automation tools to define the infrastructure as code, enabling easy replication and updates of the application stack.
 
 
-### Posible Ways of achieving the same:
+### Posible ways of achieving the same:
 
  1. Using Web Console and manually configure resources
+
  2. Write CloudFormation templates, use AWS CLI and deploy through cloudformation templates. 
+
+ ### Output:
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/private-hosted-zone.png?raw=true)
+
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/route-53-dns-alias-to-alb.png?raw=true)
+
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/hosted-zone-health-check-1.png?raw=true)
+
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/hosted-zone-health-check-2.png?raw=true)
+
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/hosted-zone-health-check-3.png?raw=true)
+
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-launch-template.png?raw=true)
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/autoscale-group.png?raw=true)
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-alb.png?raw=true)
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-instances-after-asg.png?raw=true)
+
+![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/index-page.png?raw=true)
+
+![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/index-page-2.png?raw=true)
+
+![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/index-page-3.png?raw=true)
+
+ 
