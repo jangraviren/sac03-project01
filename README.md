@@ -114,7 +114,15 @@ Your organization wants to deploy a new multi-tier application. The application 
 
  ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-instances-all.png?raw=true)
 
-10. 
+10. Cloudwatch Alarm take relevant action whenever policy configuration/rule executed.
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/cloudwatch-alarm.png?raw=true)
+
+11. SNS Topic suscription email goes to the required consumer.
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/sns-subscribe-topic-email-notification?raw=true)
+
+12. Application is created as per the required logic. Name and Address taking post form is included. Ajax is used to submit the form data to the database. Employees datatable is created to list the submitted database. Different instances showing the same data inserted. 
 
 ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/index-page.png?raw=true)
 
