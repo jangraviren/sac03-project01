@@ -67,30 +67,54 @@ Your organization wants to deploy a new multi-tier application. The application 
 
  2. Write CloudFormation templates, use AWS CLI and deploy through cloudformation templates. 
 
- ### Output:
+ ### Project Implementation:
+1. RDS MySQL Instance is created opening the port 3306. In real scenarios we can have backups, snapshots and additional users for RDS access. Direct opening of the 3306 port from public won't be a good option and we should go for a Jump Server which would be inside the same VPC/Network. 
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/rds-mysql-database.png?raw=true)
+
+
+2. Create a project schema/database and the required table with required columns. 
+
+![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/rds-mysql-table.png?raw=true)
+
+3. Hosted Zone Created: Actual hosted zone can be public and would be actual domain based. Also health check points are created for the DNS which can check the 
 
  ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/private-hosted-zone.png?raw=true)
 
+4. Ec2 launch template created with user data script for the required files. Script includes installing apache, php and required package to connect php application to mysql database. Apart from that application files like index.html, save_data.php, get_data.php and a config.php is included in the script. Although in real world scenarios and environment based scenarios, we would use AWS Secrets manager and Database proxy for the db connectivity. But just for this project, we store credentials in plain config file.
+
+![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-launch-template.png?raw=true)
+
+5. Application load balancer is created with target group on port 80.
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-alb.png?raw=true)
+
+6. Alias record for the load balancer is created in the hosted zone. So that this domain route all the traffic to the load balancer.
 
  ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/route-53-dns-alias-to-alb.png?raw=true)
 
 
+7. DNS Routing Policy created with health check. So that Route 53 will only include healthy EC2 instances in the Load Balancer in the DNS response. This further enhances the availability and reliability of the application by ensuring that traffic is only directed to healthy instances
+
  ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/hosted-zone-health-check-1.png?raw=true)
 
-
  ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/hosted-zone-health-check-2.png?raw=true)
-
 
  ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/hosted-zone-health-check-3.png?raw=true)
 
 
- ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-launch-template.png?raw=true)
+8. AutoScaling group is created with the required configuration. Desired capacity, min, max instances and policy could be any based on the real world situation.
 
- ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/autoscale-group.png?raw=true)
+![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/autoscale-group.png?raw=true)
 
- ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-alb.png?raw=true)
+
+9. Required instances automatically created and deleted based on the auto scaling configuration. 
 
  ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-instances-after-asg.png?raw=true)
+
+ ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/ec2-instances-all.png?raw=true)
+
+10. 
 
 ![alt text](https://github.com/jangraviren/sac03-project01/blob/main/images/index-page.png?raw=true)
 
